@@ -1,26 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Form from "./components/commons/Form";
+import { useCountDown } from "./helpers/useCountdown";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    let timer = useCountDown("2021-10-03");
+
+    return (
+        <div className="wrapper">
+            <h1>Countdown.io</h1>
+            <Form />
+            <p>{`${timer.days} days, ${timer.hours} hours, ${timer.minutes} min, ${timer.seconds} sec`}</p>
+        </div>
+    );
 }
 
 export default App;
